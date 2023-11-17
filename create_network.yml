@@ -29,3 +29,23 @@
           - wireless
       register: off_network
       loop: "{{ lookup('dict', devices) }}"
+
+    - name: Add devices to Network
+      cisco.meraki.networks_devices_claim:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
+       # serials: "{{ item.value.serial_no }}"
+      register: off_add_dev1
+      loop: "{{ lookup('dict', devices) }}"
+
+    - name: Add subnets
+      cisco.meraki.networks_appliance_vlans:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        state: present
+        name: "{{ item.value.name }}"
+        vlanId: "{{ item.value.vlanId }}"
+        subnet: "{{ item.value.subnet }}"
+        applianceIp: "{{ item.value.default_gw }}"
+      register: off_add_subnets
+      loop: "{{ lookup('dict', addresses) }}"
