@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+
+  vars:
+   meraki_key: "{{ meraki_key }}"
+   org_id: "{{ org_id }}"
+
+  tasks:
+  
+    - name: Create SSID
+      cisco.meraki.networks_wireless_ssids: 
+        meraki_api_key: "{{ meraki_key }}"
+        networkId: "{{ network_id }}"
+        enabled: true
+        state: present
+        name: "{{ ssid_name }}"
+        number: "{{ ssid_number }}"
+        encryptionMode: "wpa"
+        authMode: "psk"
+        psk: "{{ preshared_key }}"
+        wpaEncryptionMode: "WPA2 only"
+        visible: "true"
+        availableOnAllAps: "true"
+        useVlanTagging: "true"
+        defaultVlanId: "{{ vlan }}"
+        vailableOnAllAps: true
+      delegate_to: localhost
