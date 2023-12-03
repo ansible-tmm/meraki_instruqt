@@ -7,8 +7,8 @@
   tasks:
     - name: Get Organization Networks
       cisco.meraki.networks_info:
-        meraki_api_key: "d393615d2c452927ec2f41ea519463dfa7cdc891"
-        organizationId: "1514720"
+        meraki_api_key: ""
+        organizationId: ""
 
       register: result
       
