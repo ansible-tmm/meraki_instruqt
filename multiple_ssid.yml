@@ -3,12 +3,12 @@
 
   vars_files:
     - meraki_wifi_vars.yml
-  
+
   tasks:
     - name: Get Organization Networks
       cisco.meraki.networks_info:
-        meraki_api_key: ""
-        organizationId: ""
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
 
       register: result
       
@@ -19,7 +19,7 @@
      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
-        meraki_api_key: "d393615d2c452927ec2f41ea519463dfa7cdc891"
+        meraki_api_key: "{{ meraki_key }}"
         networkId: "{{ filtered_networks.0.id }}"
         enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
