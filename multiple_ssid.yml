@@ -2,7 +2,8 @@
 - hosts: localhost
 
   vars_files:
-    - meraki_wifi_vars.yml
+### Variable file name here 
+
 
   tasks:
     - name: Get Organization Networks
