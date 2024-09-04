@@ -3,7 +3,7 @@ meraki_api_key: "{{ meraki_key }}"
 org_id: "{{ org_id }}"
 
 SSID:
-  - name: Cape_town
+  - name: Cape_town2
     number: 1
     enabled: true
     authentication:
