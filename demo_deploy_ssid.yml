@@ -2,8 +2,7 @@
 - hosts: localhost
 
   vars_files:
-
-
+   demo_ssid_vars.yml
 
   tasks:
     - name: Get Organization Networks
