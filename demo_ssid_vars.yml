@@ -3,7 +3,7 @@ meraki_api_key: "{{ meraki_key }}"
 org_id: "{{ org_id }}"
 
 SSID:
-  - name: 
+  - name: Cape_town
     number: 1
     enabled: true
     authentication:
@@ -14,7 +14,7 @@ SSID:
     visible: false
     availableOnAllAps: true
     
-  - name: 
+  - name: Johannesburg
     number: 2
     enabled: true
     authentication:
@@ -28,7 +28,7 @@ SSID:
     visible: true
     availableOnAllAps: true
     
-  - name: 
+  - name: Guest-CPT
     number: 3
     enabled: false
     authentication:
@@ -40,7 +40,7 @@ SSID:
     visible: false
     availableOnAllAps: true
     
-  - name: 
+  - name: Guest-JHB
     number: 4
     enabled: true
     authentication:
