@@ -1,6 +1,7 @@
 ---
-- hosts: localhost
-
+- name: Manage firewall
+  hosts: localhost
+  
   vars:
    meraki_key: "{{ meraki_key }}"
    org_id: "{{ org_id }}"
